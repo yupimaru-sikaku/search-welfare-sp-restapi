@@ -1,0 +1,1 @@
+web: gunicorn search_welfare_sp_api.wsgi --log-file -
