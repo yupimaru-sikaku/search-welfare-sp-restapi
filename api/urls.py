@@ -5,7 +5,7 @@ from api.views import OfficeViewSet, CreateUserView, OfficeListView, OfficeRetri
 
 router = routers.DefaultRouter()
 router.register('office', OfficeViewSet, basename='offices')
-router.register('company', OfficeViewSet, basename='companys')
+router.register('company', OfficeViewSet, basename='companies')
 
 urlpatterns = [
     path('list-company/', CompanyListView.as_view(), name='list-company'),
