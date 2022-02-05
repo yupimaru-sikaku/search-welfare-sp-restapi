@@ -27,5 +27,5 @@ class Office(models.Model):
     faxNumber = models.CharField(blank=True, null=True,  max_length = 11)
     email = models.EmailField(max_length = 100)
     humanName = models.CharField(max_length = 10)
-    capacity = models.IntegerField
+    capacity = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)

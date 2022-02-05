@@ -19,7 +19,8 @@ class CompanySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Company
-        fields = ("id", "companyName", "companyNumber", "postalCode", "address", "telephoneNumber", "faxNumber", "email", "humanName", "created_at")
+        fields = ("id", "companyName", "companyNumber", "postalCode", "address", "telephoneNumber", "faxNumber",
+                  "email", "humanName", "created_at")
 
 class OfficeSerializer(serializers.ModelSerializer):
 
@@ -27,4 +28,5 @@ class OfficeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Office
-        fields = ("id", "officeName", "postalCode", "address", "telephoneNumber", "faxNumber", "email", "humanName", "capacity", "created_at")
+        fields = ("id", "officeName", "postalCode", "address", "telephoneNumber", "faxNumber", "email", "humanName",
+                  "capacity", "created_at")
