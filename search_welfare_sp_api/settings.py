@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = config("SECRET_KEY")
 DEBUG = config("DEBUG")
 
-ALLOWED_HOSTS = ["search-welfare-sp-restapi.herokuapp.com/"]
+ALLOWED_HOSTS = ['search-welfare-sp-restapi.herokuapp.com']
 
 
 # Application definition
@@ -55,7 +55,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3000", "https://search-welfare-sp.vercel.app"
+    "http://localhost:3000",
 ]
 
 SIMPLE_JWT = {
