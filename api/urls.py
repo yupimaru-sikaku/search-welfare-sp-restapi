@@ -1,11 +1,13 @@
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
-from api.views import OfficeViewSet, CreateUserView, OfficeListView, OfficeRetrieveView, CompanyListView, CompanyRetrieveView
+from api.views import OfficeViewSet, CompanyViewSet, CreateUserView, OfficeListView, OfficeRetrieveView, \
+    CompanyListView, CompanyRetrieveView
 
 router = routers.DefaultRouter()
 router.register('offices', OfficeViewSet, basename='offices')
-router.register('companies', OfficeViewSet, basename='companies')
+router.register('companies', CompanyViewSet, basename='companies')
+
 
 urlpatterns = [
     path('list-company/', CompanyListView.as_view(), name='list-company'),
