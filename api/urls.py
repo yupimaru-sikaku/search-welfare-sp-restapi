@@ -4,8 +4,8 @@ from rest_framework import routers
 from api.views import OfficeViewSet, CreateUserView, OfficeListView, OfficeRetrieveView, CompanyListView, CompanyRetrieveView
 
 router = routers.DefaultRouter()
-router.register('office', OfficeViewSet, basename='offices')
-router.register('company', OfficeViewSet, basename='companies')
+router.register('offices', OfficeViewSet, basename='offices')
+router.register('companies', OfficeViewSet, basename='companies')
 
 urlpatterns = [
     path('list-company/', CompanyListView.as_view(), name='list-company'),
