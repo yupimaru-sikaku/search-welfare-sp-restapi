@@ -55,7 +55,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3000"
+    "http://localhost:3000", "https://search-welfare-sp.vercel.app"
 ]
 
 SIMPLE_JWT = {
