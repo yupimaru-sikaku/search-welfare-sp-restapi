@@ -12,10 +12,10 @@ router.register('companies', CompanyViewSet, basename='companies')
 urlpatterns = [
     path('list-company/', CompanyListView.as_view(), name='list-company'),
     # path('detail-company/<str:pk>/', CompanyRetrieveView.as_view(), name='detail-company'),
+    path('detail-company/<int:pk>/', CompanyDetailAPIView.as_view(), name='detail-company')
     path('list-office/', OfficeListView.as_view(), name='list-office'),
     path('detail-office/<str:pk>/', OfficeRetrieveView.as_view(), name='detail-office'),
     path('register/', CreateUserView.as_view(), name='register'),
     path('auth/', include('djoser.urls.jwt')),
     path('', include(router.urls)),
-    path('detail_companies/<int:pk>/', CompanyDetailAPIView.as_view(), name='detail-company')
 ]
