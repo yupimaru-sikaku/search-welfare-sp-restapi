@@ -8,6 +8,9 @@ class CreateUserView(generics.CreateAPIView):
     serializer_class = UserSerializer
     permission_classes = (AllowAny,)
 
+
+
+
 class CompanyListView(generics.ListAPIView):
     queryset = Company.objects.all()
     serializer_class = CompanyDetailSerializer
@@ -20,10 +23,10 @@ class CompanyListView(generics.ListAPIView):
             queryset = queryset.filter(companyName__icontains=companyName)  # 「__icontains」を追加する
         return queryset
 
-class CompanyRetrieveView(generics.RetrieveAPIView):
-    queryset = Company.objects.all()
-    serializer_class = CompanyDetailSerializer
-    permission_classes = (AllowAny,)
+# class CompanyRetrieveView(generics.RetrieveAPIView):
+#     queryset = Company.objects.all()
+#     serializer_class = CompanyDetailSerializer
+#     permission_classes = (AllowAny,)
 
 class CompanyDetailAPIView(generics.RetrieveAPIView):
     queryset = Company.objects.all()
@@ -33,6 +36,8 @@ class CompanyDetailAPIView(generics.RetrieveAPIView):
 class CompanyViewSet(viewsets.ModelViewSet):
     queryset = Company.objects.all()
     serializer_class = CompanyDetailSerializer
+
+
 
 class OfficeListView(generics.ListAPIView):
     queryset = Office.objects.all()

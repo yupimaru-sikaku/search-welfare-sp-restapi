@@ -2,7 +2,7 @@ from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
 from api.views import OfficeViewSet, CompanyViewSet, CreateUserView, OfficeListView, OfficeRetrieveView, \
-    CompanyListView, CompanyRetrieveView, CompanyDetailAPIView
+    CompanyListView, CompanyDetailAPIView
 
 router = routers.DefaultRouter()
 router.register('offices', OfficeViewSet, basename='offices')
