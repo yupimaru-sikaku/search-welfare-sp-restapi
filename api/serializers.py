@@ -32,14 +32,14 @@ class CompanyDetailSerializer(serializers.ModelSerializer):
             office_abstruct_contents = None
             return office_abstruct_contents
 
-class CompanySerializer(serializers.ModelSerializer):
+# class CompanySerializer(serializers.ModelSerializer):
 #
-    created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
-
-    class Meta:
-        model = Company
-        fields = ("id", "companyName", "companyNumber", "postalCode", "address", "telephoneNumber", "faxNumber",
-                  "email", "humanName", "created_at")
+#     created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
+#
+#     class Meta:
+#         model = Company
+#         fields = ("id", "companyName", "companyNumber", "postalCode", "address", "telephoneNumber", "faxNumber",
+#                   "email", "humanName", "created_at")
 
 class OfficeSerializer(serializers.ModelSerializer):
 

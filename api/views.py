@@ -1,7 +1,7 @@
 from rest_framework.permissions import AllowAny
 from rest_framework import generics
 from rest_framework import viewsets
-from .serializers import CompanySerializer, UserSerializer, OfficeSerializer, CompanyDetailSerializer
+from .serializers import UserSerializer, OfficeSerializer, CompanyDetailSerializer
 from .models import Company, Office
 
 class CreateUserView(generics.CreateAPIView):
@@ -10,7 +10,7 @@ class CreateUserView(generics.CreateAPIView):
 
 class CompanyListView(generics.ListAPIView):
     queryset = Company.objects.all()
-    serializer_class = CompanySerializer
+    serializer_class = CompanyDetailSerializer
     permission_classes = (AllowAny,)
 
     def get_queryset(self):
@@ -22,12 +22,17 @@ class CompanyListView(generics.ListAPIView):
 
 class CompanyRetrieveView(generics.RetrieveAPIView):
     queryset = Company.objects.all()
-    serializer_class = CompanySerializer
+    serializer_class = CompanyDetailSerializer
     permission_classes = (AllowAny,)
+
+class CompanyDetailAPIView(generics.RetrieveAPIView):
+    queryset = Company.objects.all()
+    serializer_class = CompanyDetailSerializer
+    lookup_field = 'pk'
 
 class CompanyViewSet(viewsets.ModelViewSet):
     queryset = Company.objects.all()
-    serializer_class = CompanySerializer
+    serializer_class = CompanyDetailSerializer
 
 class OfficeListView(generics.ListAPIView):
     queryset = Office.objects.all()
@@ -43,7 +48,3 @@ class OfficeViewSet(viewsets.ModelViewSet):
     queryset = Office.objects.all()
     serializer_class = OfficeSerializer
 
-class CompanyDetailAPIView(generics.RetrieveAPIView):
-    queryset = Company.objects.all()
-    serializer_class = CompanyDetailSerializer
-    lookup_field = 'pk'
