@@ -13,6 +13,13 @@ class CompanyListView(generics.ListAPIView):
     serializer_class = CompanySerializer
     permission_classes = (AllowAny,)
 
+    def get_queryset(self):
+        queryset = Company.objects.all()
+        companyName = self.request.query_params.get('companyName', None)
+        if companyName is not None:
+            queryset = queryset.filter(companyName=companyName)
+        return queryset
+
 class CompanyRetrieveView(generics.RetrieveAPIView):
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
