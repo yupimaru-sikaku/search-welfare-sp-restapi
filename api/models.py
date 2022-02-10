@@ -20,7 +20,8 @@ class Office(models.Model):
     def __str__(self):
         return str(self.id) + " - " + self.officeName
 
-    target_company = models.ForeignKey(Company, on_delete=models.SET_NULL, null=True)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name="offices")
+
     officeName = models.CharField(unique= True, max_length = 50)
     postalCode = models.CharField(max_length = 7)
     address = models.CharField(max_length = 100)

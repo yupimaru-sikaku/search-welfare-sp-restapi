@@ -1,7 +1,7 @@
 from rest_framework.permissions import AllowAny
 from rest_framework import generics
 from rest_framework import viewsets
-from .serializers import UserSerializer, CompanyDetailSerializer, OfficeChildSerializer
+from .serializers import UserSerializer, CompanySerializer, OfficeSerializer
 from .models import Company, Office
 
 class CreateUserView(generics.CreateAPIView):
@@ -13,7 +13,7 @@ class CreateUserView(generics.CreateAPIView):
 
 class CompanyListView(generics.ListAPIView):
     queryset = Company.objects.all()
-    serializer_class = CompanyDetailSerializer
+    serializer_class = CompanySerializer
     permission_classes = (AllowAny,)
 
     def get_queryset(self):
@@ -23,33 +23,29 @@ class CompanyListView(generics.ListAPIView):
             queryset = queryset.filter(companyName__icontains=companyName)  # 「__icontains」を追加する
         return queryset
 
-# class CompanyRetrieveView(generics.RetrieveAPIView):
-#     queryset = Company.objects.all()
-#     serializer_class = CompanyDetailSerializer
-#     permission_classes = (AllowAny,)
-
-class CompanyDetailAPIView(generics.RetrieveAPIView):
+class CompanyRetrieveView(generics.RetrieveAPIView):
     queryset = Company.objects.all()
-    serializer_class = CompanyDetailSerializer
-    lookup_field = 'pk'
+    serializer_class = CompanySerializer
+    permission_classes = (AllowAny,)
+
 
 class CompanyViewSet(viewsets.ModelViewSet):
     queryset = Company.objects.all()
-    serializer_class = CompanyDetailSerializer
+    serializer_class = CompanySerializer
 
 
 
 class OfficeListView(generics.ListAPIView):
     queryset = Office.objects.all()
-    serializer_class = OfficeChildSerializer
+    serializer_class = OfficeSerializer
     permission_classes = (AllowAny,)
 
 class OfficeRetrieveView(generics.RetrieveAPIView):
     queryset = Office.objects.all()
-    serializer_class = OfficeChildSerializer
+    serializer_class = OfficeSerializer
     permission_classes = (AllowAny,)
 
 class OfficeViewSet(viewsets.ModelViewSet):
     queryset = Office.objects.all()
-    serializer_class = OfficeChildSerializer
+    serializer_class = OfficeSerializer
 
