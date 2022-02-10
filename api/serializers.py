@@ -15,7 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
 class CompanyDetailSerializer(serializers.ModelSerializer):
-    ofiices = SerializerMethodField() #このフィールドを加えると下記のように出力する値を操作できます。
+    offices = SerializerMethodField() #このフィールドを加えると下記のように出力する値を操作できます。
     class Meta:
         model = Company
         fields = ("id", "companyName", "companyNumber", "postalCode", "address", "telephoneNumber", "faxNumber",
