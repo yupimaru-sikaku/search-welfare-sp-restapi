@@ -1,7 +1,7 @@
 from rest_framework.permissions import AllowAny
 from rest_framework import generics
 from rest_framework import viewsets
-from .serializers import CompanySerializer, UserSerializer, OfficeSerializer
+from .serializers import CompanySerializer, UserSerializer, OfficeSerializer, CompanyDetailSerializer
 from .models import Company, Office
 
 class CreateUserView(generics.CreateAPIView):
@@ -42,3 +42,8 @@ class OfficeRetrieveView(generics.RetrieveAPIView):
 class OfficeViewSet(viewsets.ModelViewSet):
     queryset = Office.objects.all()
     serializer_class = OfficeSerializer
+
+class CompanyDetailAPIView(generics.RetrieveAPIView):
+    queryset = Company.objects.all()
+    serializer_class = CompanyDetailSerializer
+    lookup_field = 'pk'
