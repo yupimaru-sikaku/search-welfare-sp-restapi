@@ -17,7 +17,7 @@ class CompanyListView(generics.ListAPIView):
         queryset = Company.objects.all()
         companyName = self.request.query_params.get('companyName', None)
         if companyName is not None:
-            queryset = queryset.filter(companyName=companyName)
+            queryset = queryset.filter(companyName__icontains=companyName)  # 「__icontains」を追加する
         return queryset
 
 class CompanyRetrieveView(generics.RetrieveAPIView):
