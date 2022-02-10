@@ -41,14 +41,14 @@ class CompanyDetailSerializer(serializers.ModelSerializer):
 #         fields = ("id", "companyName", "companyNumber", "postalCode", "address", "telephoneNumber", "faxNumber",
 #                   "email", "humanName", "created_at")
 
-class OfficeSerializer(serializers.ModelSerializer):
-
-    created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
-
-    class Meta:
-        model = Office
-        fields = ("id", "officeName", "postalCode", "address", "telephoneNumber", "faxNumber", "email", "humanName",
-                  "capacity", "created_at")
+# class OfficeSerializer(serializers.ModelSerializer):
+#
+#     created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
+#
+#     class Meta:
+#         model = Office
+#         fields = ("id", "officeName", "postalCode", "address", "telephoneNumber", "faxNumber", "email", "humanName",
+#                   "capacity", "created_at")
 
 class OfficeChildSerializer(serializers.ModelSerializer):
     class Meta:

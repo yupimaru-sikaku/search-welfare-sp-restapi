@@ -1,7 +1,7 @@
 from rest_framework.permissions import AllowAny
 from rest_framework import generics
 from rest_framework import viewsets
-from .serializers import UserSerializer, OfficeSerializer, CompanyDetailSerializer
+from .serializers import UserSerializer, CompanyDetailSerializer, OfficeChildSerializer
 from .models import Company, Office
 
 class CreateUserView(generics.CreateAPIView):
@@ -36,15 +36,15 @@ class CompanyViewSet(viewsets.ModelViewSet):
 
 class OfficeListView(generics.ListAPIView):
     queryset = Office.objects.all()
-    serializer_class = OfficeSerializer
+    serializer_class = OfficeChildSerializer
     permission_classes = (AllowAny,)
 
 class OfficeRetrieveView(generics.RetrieveAPIView):
     queryset = Office.objects.all()
-    serializer_class = OfficeSerializer
+    serializer_class = OfficeChildSerializer
     permission_classes = (AllowAny,)
 
 class OfficeViewSet(viewsets.ModelViewSet):
     queryset = Office.objects.all()
-    serializer_class = OfficeSerializer
+    serializer_class = OfficeChildSerializer
 
