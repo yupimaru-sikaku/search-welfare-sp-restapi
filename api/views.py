@@ -3,12 +3,11 @@ from rest_framework import generics
 from rest_framework import viewsets
 from .serializers import UserSerializer, CompanySerializer, OfficeSerializer
 from .models import Company, Office
+from rest_framework import filters
 
 class CreateUserView(generics.CreateAPIView):
     serializer_class = UserSerializer
     permission_classes = (AllowAny,)
-
-
 
 
 class CompanyListView(generics.ListAPIView):
@@ -28,11 +27,9 @@ class CompanyRetrieveView(generics.RetrieveAPIView):
     serializer_class = CompanySerializer
     permission_classes = (AllowAny,)
 
-
 class CompanyViewSet(viewsets.ModelViewSet):
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
-
 
 
 class OfficeListView(generics.ListAPIView):
@@ -44,6 +41,18 @@ class OfficeRetrieveView(generics.RetrieveAPIView):
     queryset = Office.objects.all()
     serializer_class = OfficeSerializer
     permission_classes = (AllowAny,)
+
+class OfficeCompanyListView(generics.ListAPIView):
+    queryset = Office.objects.all()
+    serializer_class = OfficeSerializer
+    permission_classes = (AllowAny,)
+
+    def get_queryset(self):
+        queryset = Office.objects.all()
+        company = self.request.query_params.get('company', None)
+        if company is not None:
+            queryset = queryset.filter(company=company)  # 「__icontains」を追加する
+        return queryset
 
 class OfficeViewSet(viewsets.ModelViewSet):
     queryset = Office.objects.all()

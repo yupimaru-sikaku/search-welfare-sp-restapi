@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = config("SECRET_KEY")
 DEBUG = config("DEBUG")
 
-ALLOWED_HOSTS = ['search-welfare-sp-restapi.herokuapp.com']
+ALLOWED_HOSTS = ["127.0.0.1", 'search-welfare-sp-restapi.herokuapp.com']
 
 
 # Application definition

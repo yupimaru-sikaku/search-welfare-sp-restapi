@@ -2,9 +2,6 @@ from django.db import models
 
 class Company(models.Model):
 
-    def __str__(self):
-        return str(self.id) + " - " + self.companyName
-
     companyName = models.CharField(unique= True, max_length = 50)
     companyNumber = models.CharField(unique= True, max_length = 13)
     postalCode = models.CharField(max_length = 7)
@@ -14,13 +11,14 @@ class Company(models.Model):
     email = models.EmailField(max_length = 100)
     humanName = models.CharField(max_length = 10)
     created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return str(self.id) + " - " + self.companyName
 
 class Office(models.Model):
 
-    def __str__(self):
-        return str(self.id) + " - " + self.officeName
-
-    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name="offices")
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
 
     officeName = models.CharField(unique= True, max_length = 50)
     postalCode = models.CharField(max_length = 7)
@@ -31,3 +29,7 @@ class Office(models.Model):
     humanName = models.CharField(max_length = 10)
     capacity = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return str(self.id) + " - " + self.officeName

@@ -13,21 +13,24 @@ class UserSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(**validated_data)
         return user
 
-# 順番注意！！Office-Companyの順番
+
+# 順番注意！！Office-Companyの順番CompanySerializerが使えないから
 class OfficeSerializer(serializers.ModelSerializer):
-    company = serializers.StringRelatedField()
     created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
 
     class Meta:
         model = Office
         fields = ("id", "officeName", "postalCode", "address", "telephoneNumber", "faxNumber", "email", "humanName",
-                  "capacity", "created_at")
+                  "capacity", "created_at", "updated_at", "company")
+
 
 class CompanySerializer(serializers.ModelSerializer):
+    office = OfficeSerializer(read_only=True)
     created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
 
     class Meta:
         model = Company
         fields = ("id", "companyName", "companyNumber", "postalCode", "address", "telephoneNumber", "faxNumber",
-                  "email", "humanName", "created_at")
+                  "email", "humanName", "created_at", "updated_at", "office")
+
 
