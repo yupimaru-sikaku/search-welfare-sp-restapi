@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Company, Office
+from .models import Company, Office, Service
 from django.contrib.auth.models import User
 
 class UserSerializer(serializers.ModelSerializer):
@@ -14,23 +14,23 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
 # 順番注意！！Service-Office-Companyの順番Serializerが使えないから
-# class ServiceSerializer(serializers.ModelSerializer):
-#     created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
-#     updated_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
-#
-#     class Meta:
-#         model = Service
-#         fields = ("id", "officeNumber", "serviceType", "created_at", "updated_at", "office")
+class ServiceSerializer(serializers.ModelSerializer):
+    created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
+    updated_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
+
+    class Meta:
+        model = Service
+        fields = ("id", "officeNumber", "serviceType", "created_at", "updated_at", "office")
 
 class OfficeSerializer(serializers.ModelSerializer):
-    # service = ServiceSerializer(read_only=True)
+    service = ServiceSerializer(read_only=True)
     created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
     updated_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
 
     class Meta:
         model = Office
         fields = ("id", "officeName", "postalCode", "address", "telephoneNumber", "faxNumber", "email", "humanName",
-                  "capacity", "created_at", "updated_at", "company")
+                  "capacity", "created_at", "updated_at", "company", "service")
 
 
 class CompanySerializer(serializers.ModelSerializer):
