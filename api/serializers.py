@@ -32,7 +32,6 @@ class OfficeSerializer(serializers.ModelSerializer):
         fields = ("id", "officeName", "postalCode", "address", "telephoneNumber", "faxNumber", "email", "humanName",
                   "capacity", "created_at", "updated_at", "company", "service")
 
-
 class CompanySerializer(serializers.ModelSerializer):
     office = OfficeSerializer(read_only=True)
     created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
@@ -42,4 +41,3 @@ class CompanySerializer(serializers.ModelSerializer):
         model = Company
         fields = ("id", "companyName", "companyNumber", "postalCode", "address", "telephoneNumber", "faxNumber",
                   "email", "humanName", "created_at", "updated_at", "office")
-
