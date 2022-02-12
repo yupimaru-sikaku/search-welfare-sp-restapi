@@ -3,7 +3,6 @@ from rest_framework import generics
 from rest_framework import viewsets
 from .serializers import UserSerializer, CompanySerializer, OfficeSerializer, ServiceSerializer
 from .models import Company, Office, Service
-from rest_framework import filters
 
 class CreateUserView(generics.CreateAPIView):
     serializer_class = UserSerializer
