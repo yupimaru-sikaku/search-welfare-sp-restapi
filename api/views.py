@@ -1,8 +1,8 @@
 from rest_framework.permissions import AllowAny
 from rest_framework import generics
 from rest_framework import viewsets
-from .serializers import UserSerializer, CompanySerializer, OfficeSerializer
-from .models import Company, Office
+from .serializers import UserSerializer, CompanySerializer, OfficeSerializer, ServiceSerializer
+from .models import Company, Office, Service
 from rest_framework import filters
 
 class CreateUserView(generics.CreateAPIView):
@@ -51,10 +51,35 @@ class OfficeCompanyListView(generics.ListAPIView):
         queryset = Office.objects.all()
         company = self.request.query_params.get('company', None)
         if company is not None:
-            queryset = queryset.filter(company=company)  # 「__icontains」を追加する
+            queryset = queryset.filter(company=company)
         return queryset
 
 class OfficeViewSet(viewsets.ModelViewSet):
     queryset = Office.objects.all()
     serializer_class = OfficeSerializer
 
+class ServiceViewSet(viewsets.ModelViewSet):
+    queryset = Service.objects.all()
+    serializer_class = ServiceSerializer
+
+class ServiceListView(generics.ListAPIView):
+    queryset = Service.objects.all()
+    serializer_class = ServiceSerializer
+    permission_classes = (AllowAny,)
+
+class ServiceRetrieveView(generics.RetrieveAPIView):
+    queryset = Service.objects.all()
+    serializer_class = ServiceSerializer
+    permission_classes = (AllowAny,)
+
+class ServiceOfficeListView(generics.ListAPIView):
+    queryset = Service.objects.all()
+    serializer_class = ServiceSerializer
+    permission_classes = (AllowAny,)
+
+    def get_queryset(self):
+        queryset = Service.objects.all()
+        office = self.request.query_params.get('office', None)
+        if office is not None:
+            queryset = queryset.filter(office=office)
+        return queryset

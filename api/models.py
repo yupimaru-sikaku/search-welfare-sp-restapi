@@ -33,3 +33,27 @@ class Office(models.Model):
 
     def __str__(self):
         return str(self.id) + " - " + self.officeName
+
+class Service(models.Model):
+
+    office = models.ForeignKey(Office, on_delete=models.CASCADE)
+
+    DEFAULTSERVICE = "共同生活援助（介護サービス包括型）"
+    SERVICETYPE = (
+        ("共同生活援助（介護サービス包括型）", "共同生活援助（介護サービス包括型）"),
+        ("就労継続支援B型）", "就労継続支援B型"),
+        ("生活介護）", "生活介護"),
+        ("計画相談支援", "計画相談支援"),
+        ("重度訪問介護", "重度訪問介護"),
+        ("児童発達支援", "児童発達支援"),
+        ("障がい児相談支援", "障がい児相談支援"),
+        ("重度訪問介護", "重度訪問介護"),
+    )
+
+    officeNumber = models.CharField(unique= True, max_length = 11)
+    serviceType = models.CharField(choices=SERVICETYPE, default=DEFAULTSERVICE, max_length=20)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return str(self.id) + "-" + self.serviceType
