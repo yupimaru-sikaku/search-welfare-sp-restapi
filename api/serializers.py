@@ -3,6 +3,8 @@ from .models import Company, Office, Service
 from django.contrib.auth.models import User
 
 class UserSerializer(serializers.ModelSerializer):
+    created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
+    updated_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
 
     class Meta:
         model = User
@@ -30,7 +32,7 @@ class OfficeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Office
         fields = ("id", "officeName", "postalCode", "address", "telephoneNumber", "faxNumber", "email", "humanName",
-                  "capacity", "created_at", "updated_at", "company", "service")
+                  "capacity", "created_at", "updated_at", "service", "company")
 
 class CompanySerializer(serializers.ModelSerializer):
     office = OfficeSerializer(read_only=True)
