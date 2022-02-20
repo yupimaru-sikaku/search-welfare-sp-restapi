@@ -13,6 +13,7 @@ class CreateUserView(generics.CreateAPIView):
 class CompanyViewSet(viewsets.ModelViewSet):
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
+    permission_classes = (AllowAny,)
 
 class CompanyListView(generics.ListAPIView):
     queryset = Company.objects.all()
@@ -35,6 +36,7 @@ class CompanyRetrieveView(generics.RetrieveAPIView):
 class OfficeViewSet(viewsets.ModelViewSet):
     queryset = Office.objects.all()
     serializer_class = OfficeSerializer
+    permission_classes = (AllowAny,)
 
 class OfficeListView(generics.ListAPIView):
     queryset = Office.objects.all()
@@ -62,6 +64,7 @@ class OfficeRetrieveView(generics.RetrieveAPIView):
 class ServiceViewSet(viewsets.ModelViewSet):
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
+    permission_classes = (AllowAny,)
 
 class ServiceListView(generics.ListAPIView):
     queryset = Service.objects.all()
