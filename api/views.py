@@ -13,7 +13,6 @@ class CreateUserView(generics.CreateAPIView):
 class CompanyViewSet(viewsets.ModelViewSet):
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
-    permission_classes = (AllowAny,)
 
 class CompanyListView(generics.ListAPIView):
     queryset = Company.objects.all()
