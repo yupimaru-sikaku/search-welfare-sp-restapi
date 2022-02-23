@@ -42,6 +42,14 @@ class OfficeListView(generics.ListAPIView):
     serializer_class = OfficeSerializer
     permission_classes = (AllowAny,)
 
+    def get_queryset(self):
+        queryset = Office.objects.all()
+        officeName = self.request.query_params.get('officeName', None)
+        if officeName is not None:
+            queryset = queryset.filter(officeName__icontains=officeName)  # 「__icontains」を追加で部分一致
+        return queryset
+
+
 class OfficeCompanyListView(generics.ListAPIView):
     queryset = Office.objects.all()
     serializer_class = OfficeSerializer
