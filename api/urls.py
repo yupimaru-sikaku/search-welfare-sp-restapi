@@ -17,7 +17,7 @@ urlpatterns = [
     path('detail-company/<int:pk>/', CompanyRetrieveView.as_view(), name='detail-company'),
     ######### Office
     path('list-office/', OfficeListView.as_view(), name='list-office'),
-    path('detail-office/<str:pk>/', OfficeRetrieveView.as_view(), name='detail-office'),
+    path('detail-office/<int:pk>/', OfficeRetrieveView.as_view(), name='detail-office'),
     path('detail-office-company/', OfficeCompanyListView.as_view(), name='detail-office-company'),
     ######### Service
     path('list-service/', ServiceListView.as_view(), name='list-service'),
