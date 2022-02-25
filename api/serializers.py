@@ -19,7 +19,7 @@ class ServiceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Service
-        fields = ("id", "officeNumber", "serviceType", "created_at", "updated_at", "office")
+        fields = ("id", "officeNumber", "serviceType", "capacity", "created_at", "updated_at", "office")
 
 class OfficeSerializer(serializers.ModelSerializer):
     service = ServiceSerializer(read_only=True)
@@ -29,7 +29,7 @@ class OfficeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Office
         fields = ("id", "officeName", "postalCode", "address", "telephoneNumber", "faxNumber", "email", "humanName",
-                  "capacity", "created_at", "updated_at", "service", "company")
+                  "created_at", "updated_at", "service", "company")
 
 class CompanySerializer(serializers.ModelSerializer):
     office = OfficeSerializer(read_only=True)

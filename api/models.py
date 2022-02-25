@@ -27,7 +27,6 @@ class Office(models.Model):
     faxNumber = models.CharField(blank=True, null=True,  max_length = 11)
     email = models.EmailField(max_length = 100)
     humanName = models.CharField(max_length = 10)
-    capacity = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -51,6 +50,7 @@ class Service(models.Model):
     office = models.ForeignKey(Office, on_delete=models.CASCADE)
     officeNumber = models.CharField(unique= True, max_length = 11)
     serviceType = models.CharField(choices=STATUS_SET, default=STATUS_DEFAULT, max_length=50)
+    capacity = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
