@@ -1,33 +1,28 @@
-[{
-		"model": "api.Office",
-		"pk": 1,
-		"fields": {
-			"company": "1",
-			"officeName": "さざんか",
-			"postalCode": "5570062",
-			"address": "大阪府大阪市西成区津守3-5-28",
-			"telephoneNumber": "0728287776",
-			"faxNumber": "0676324092",
-			"email": "yukiharu.nagao@icloud.com",
-			"humanName": "代表取締役　木村　将貴",
-			"created_at": "2022-06-04 12:00:00",
-			"updated_at": "2022-06-04 12:00:00"
-		}
-	},
-	{
-		"model": "api.Office",
-		"pk": 2,
-		"fields": {
-			"company": "2",
-			"officeName": "ケアホームねやがわ池田中",
-			"postalCode": "5720074",
-			"address": "大阪府寝屋川市池田中町3番12号",
-			"telephoneNumber": "0728149556",
-			"faxNumber": "0728149556",
-			"email": "neyagawasimeno1201@gmail.com",
-			"humanName": "山内　佳菜",
-			"created_at": "2022-06-04 12:00:00",
-			"updated_at": "2022-06-04 12:00:00"
-		}
-	}
+[
+    {
+        "id": 2,
+        "officeName": "ケアホームねやがわ池田中",
+        "postalCode": "5720074",
+        "address": "大阪府寝屋川市池田中町3番12号",
+        "telephoneNumber": "0728149556",
+        "faxNumber": "0728149556",
+        "email": "neyagawasimeno1201@gmail.com",
+        "humanName": "山内　佳菜",
+        "created_at": "2022-06-04 12:00:00",
+        "updated_at": "2022-06-04 12:00:00",
+        "company": 2
+    },
+    {
+        "id": 1,
+        "officeName": "さざんか",
+        "postalCode": "5570062",
+        "address": "大阪府大阪市西成区津守3-5-28",
+        "telephoneNumber": "0728287776",
+        "faxNumber": "0676324092",
+        "email": "yukiharu.nagao@icloud.com",
+        "humanName": "代表取締役　木村　将貴",
+        "created_at": "2022-06-04 12:00:00",
+        "updated_at": "2022-03-08 16:27:01",
+        "company": 1
+    }
 ]
