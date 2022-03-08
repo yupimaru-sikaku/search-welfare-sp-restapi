@@ -1,0 +1,82 @@
+[
+	{
+		"model": "api.Company",
+	    "pk": 1,
+		"fields": {
+			"companyName": "株式会社スプラウト",
+			"companyNumber": "9120101055179",
+			"postalCode": "5720077",
+			"address": "大阪府摂津市鳥飼銘木町1番40号石富ビル１−B",
+			"telephoneNumber": "0728287776",
+			"faxNumber": "0676324092",
+			"email": "yukiharu.nagao@icloud.com",
+			"humanName": "代表取締役　木村　将貴",
+			"created_at": "2022-06-04 12:00:00",
+			"updated_at": "2022-06-04 12:00:00"
+		}
+	},
+	{
+		"model": "api.Company",
+	    "pk": 2,
+		"fields": {
+			"companyName": "One.Care合同会社",
+			"companyNumber": "5130003004575",
+			"postalCode": "6018439",
+			"address": "京都府京都市南区西九条開ケ町１２番地",
+			"telephoneNumber": "0757488391",
+			"faxNumber": "",
+			"email": "neyagawasimeno1201@gmail.com",
+			"humanName": "代表社員　中田　一成",
+			"created_at": "2022-06-04 12:00:00",
+			"updated_at": "2022-06-04 12:00:00"
+		}
+	},
+	{
+		"model": "api.Company",
+	    "pk": 3,
+		"fields": {
+			"companyName": "ＴＵＢＡＳＡ　合同会社",
+			"companyNumber": "4120003010385",
+			"postalCode": "5700021",
+			"address": "大阪府守口市八雲東町二丁目54番5号",
+			"telephoneNumber": "0669954919",
+			"faxNumber": "0669954920",
+			"email": "tubasa.yaguhiga@gmail.com",
+			"humanName": "代表社員　津田　敏克",
+			"created_at": "2022-06-04 12:00:00",
+			"updated_at": "2022-06-04 12:00:00"
+		}
+	},
+	{
+		"model": "api.Company",
+	    "pk": 4,
+		"fields": {
+			"companyName": "株式会社Heart full Hand",
+			"companyNumber": "120001214191",
+			"postalCode": "5350004",
+			"address": "大阪市旭区生江2丁目9-16",
+			"telephoneNumber": "0676628881",
+			"faxNumber": "0676628883",
+			"email": "hiro.106.0309@gmail.com",
+			"humanName": "代表取締役　上原　弘紀",
+			"created_at": "2022-06-04 12:00:00",
+			"updated_at": "2022-06-04 12:00:00"
+		}
+	},
+	{
+		"model": "api.Company",
+	    "pk": 5,
+		"fields": {
+			"companyName": "合同会社　ふぉれすと",
+			"companyNumber": "120903002195",
+			"postalCode": "5660063",
+			"address": "大阪府摂津市鳥飼銘木町１番40号 石富ビル３−Ａ",
+			"telephoneNumber": "0726536777",
+			"faxNumber": "",
+			"email": "ocean.carehome@gmail.com",
+			"humanName": "代表社員　森　洋介",
+			"created_at": "2022-06-04 12:00:00",
+			"updated_at": "2022-06-04 12:00:00"
+		}
+	}
+]

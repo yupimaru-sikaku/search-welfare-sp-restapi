@@ -1,0 +1,26 @@
+[
+	{
+		"model": "api.Office",
+		"pk": 1,
+		"fields": {
+			"office": "1",
+			"officeNumber": "2723300121",
+			"serviceType": "共同生活援助（介護サービス包括型）",
+			"capacity": 4,
+			"created_at": "2022-06-04 12:00:00",
+			"updated_at": "2022-06-04 12:00:00"
+		}
+	},
+		{
+		"model": "api.Office",
+		"pk": 2,
+		"fields": {
+			"office": "2",
+			"officeNumber": "2720300124",
+			"serviceType": "共同生活援助（介護サービス包括型）",
+			"capacity": 4,
+			"created_at": "2022-06-04 12:00:00",
+			"updated_at": "2022-06-04 12:00:00"
+		}
+	}
+]
