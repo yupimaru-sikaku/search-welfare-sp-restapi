@@ -1,5 +1,6 @@
 [{
 		"model": "api.Company",
+	    "pk": 1,
 		"fields": {
 			"companyName": "株式会社スプラウト",
 			"companyNumber": "9120101055179",
@@ -15,6 +16,7 @@
 	},
 	{
 		"model": "api.Company",
+	    "pk": 2,
 		"fields": {
 			"companyName": "One.Care合同会社",
 			"companyNumber": "5130003004575",
