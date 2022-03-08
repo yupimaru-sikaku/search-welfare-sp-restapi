@@ -26,7 +26,7 @@ class Office(models.Model):
     telephoneNumber = models.CharField(max_length = 11)
     faxNumber = models.CharField(blank=True, null=True,  max_length = 11)
     email = models.EmailField(max_length = 100)
-    humanName = models.CharField(max_length = 10)
+    humanName = models.CharField(max_length = 20)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
