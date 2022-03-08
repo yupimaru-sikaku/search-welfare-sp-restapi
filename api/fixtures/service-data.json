@@ -1,6 +1,6 @@
 [
 	{
-		"model": "api.Office",
+		"model": "api.Service",
 		"pk": 1,
 		"fields": {
 			"office": "1",
@@ -12,7 +12,7 @@
 		}
 	},
 		{
-		"model": "api.Office",
+		"model": "api.Service",
 		"pk": 2,
 		"fields": {
 			"office": "2",
