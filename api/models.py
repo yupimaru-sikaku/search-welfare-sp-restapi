@@ -2,14 +2,14 @@ from django.db import models
 
 class Company(models.Model):
 
-    companyName = models.CharField(unique= True)
-    companyNumber = models.CharField(unique= True)
-    postalCode = models.CharField()
-    address = models.CharField()
-    telephoneNumber = models.CharField()
-    faxNumber = models.CharField(blank=True, null=True)
-    email = models.EmailField()
-    humanName = models.CharField()
+    companyName = models.CharField(unique= True, max_length = 50)
+    companyNumber = models.CharField(unique= True, max_length = 13)
+    postalCode = models.CharField(max_length = 7)
+    address = models.CharField(max_length = 100)
+    telephoneNumber = models.CharField(max_length = 11)
+    faxNumber = models.CharField(blank=True, null=True,  max_length = 11)
+    email = models.EmailField(max_length = 100)
+    humanName = models.CharField(max_length = 20)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
