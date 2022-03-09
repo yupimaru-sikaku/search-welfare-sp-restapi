@@ -24,6 +24,11 @@ class ServiceSerializer(serializers.ModelSerializer):
         model = Service
         fields = ("id", "officeNumber", "serviceType", "capacity", "created_at", "updated_at", "office")
 
+    def validate_officeNumber(self, value):
+        if len(value) <= 1:
+            raise serializers.ValidationError("キーワードは必ず2文字以上で設定してください")
+       ## 現場はこちらです
+        return value
 
 class OfficeSerializer(serializers.ModelSerializer):
     service = ServiceSerializer(read_only=True)
