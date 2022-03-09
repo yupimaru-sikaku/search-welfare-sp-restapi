@@ -1,6 +1,6 @@
-from rest_framework import serializers
 from .models import Company, Office, Service
 from django.contrib.auth.models import User
+from rest_framework import serializers, validators
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -17,9 +17,13 @@ class ServiceSerializer(serializers.ModelSerializer):
     created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
     updated_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
 
+    officeNumber = serializers.CharField(
+        validators=[validators.UniqueValidator(queryset=Service.objects.all(), message='重複！')])
+
     class Meta:
         model = Service
         fields = ("id", "officeNumber", "serviceType", "capacity", "created_at", "updated_at", "office")
+
 
 class OfficeSerializer(serializers.ModelSerializer):
     service = ServiceSerializer(read_only=True)
