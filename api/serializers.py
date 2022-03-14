@@ -17,18 +17,12 @@ class ServiceSerializer(serializers.ModelSerializer):
     created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
     updated_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)
 
-    officeNumber = serializers.CharField(
-        validators=[validators.UniqueValidator(queryset=Service.objects.all(), message='重複！')])
+    # officeNumber = serializers.CharField(
+    #     validators=[validators.UniqueValidator(queryset=Service.objects.all(), message='重複！')])
 
     class Meta:
         model = Service
         fields = ("id", "officeNumber", "serviceType", "capacity", "created_at", "updated_at", "office")
-
-    def validate_officeNumber(self, value):
-        if len(value) <= 1:
-            raise serializers.ValidationError("キーワードは必ず2文字以上で設定してください")
-       ## 現場はこちらです
-        return value
 
 class OfficeSerializer(serializers.ModelSerializer):
     service = ServiceSerializer(read_only=True)

@@ -4,6 +4,7 @@ from rest_framework import viewsets
 from .serializers import UserSerializer, CompanySerializer, OfficeSerializer, ServiceSerializer
 from .models import Company, Office, Service
 
+
 ######### User
 class CreateUserView(generics.CreateAPIView):
     serializer_class = UserSerializer
@@ -78,6 +79,13 @@ class ServiceListView(generics.ListAPIView):
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
     permission_classes = (AllowAny,)
+
+    def get_queryset(self):
+        queryset = Service.objects.all()
+        officeNumber = self.request.query_params.get('officeNumber', None)
+        if officeNumber is not None:
+            queryset = queryset.filter(officeNumber=officeNumber)
+        return queryset
 
 class SeriviceOfficeListView(generics.ListAPIView):
     queryset = Service.objects.all()
